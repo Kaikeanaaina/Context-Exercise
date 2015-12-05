@@ -1,12 +1,14 @@
 var Robot = function (name) {
   this.name = name;
 
-}
+};
 
 function add ( op1, op2 ) {
   this.name = this.name || "Humans";
   return this.name + " can count to " + (op1 + op2);
 }
+
+
 
 var voltron = new Robot("Voltron");
 var bender = new Robot("Bender Rodriguez");
@@ -17,14 +19,22 @@ var wall_e = new Robot("Wall-E");
 
 
 // #1
-console.log(  );
+console.log(add(0,1) );// this is wrong
 
-// #2  
-console.log(  );
+
+// #2
+console.log(add.call(voltron,2,3));
+
 
 // #3
-console.log(  );
+console.log( add.apply(optimus,[20,30]) );
+//the difference netween call and apply is the way it is invoked.
+//apply can add to the array
+//we also can use variables for the array
+
 
 // #4
 
-console.log(  );
+
+var calculate = add.bind(bender);
+console.log( calculate("drinking"," beer") );
